@@ -69,7 +69,7 @@ There is an extensive Documentation on [Data Types](https://solidity.readthedocs
 The code [Minter.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#Minter-sol) make use of the Mapping and Address feature discussed above. In Addition that the handling of events is also demonstrated with a simple example.
 
 ### Struct, Array, and Time Units
-* Struct is a structure containing related data. Refer to the [Ballot.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#file-ballotbasic-sol) for an code eample. For example 
+* Struct is a structure containing related data. Refer to the [Ballot.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#file-ballotbasic-sol) for an code example. For example 
   struct voter {uint weight;
 		bool voted;
 		uint8 vote;
@@ -86,9 +86,14 @@ modifier onlyBy(address _account) {
 				   }
 Use the modifier in the function like this:
 function register(address toVoter) public onlyBy(chairperson) {// code}
+An in-function implementation of this check would be something like:
+if (msg.sender == _account) {return;}
 * Assert declaration can also handle errors at the end of a function execution and can also be combined with the revert clause.
 
 ## Week 3: Development
+* Events. The main difference to a function calls, the information of the event is pushed to client applications. The client can listen to pushed events by using listener code. This is vital for the development of decentralised Apps (dApps).
+* revert txn
+
 
 
 
