@@ -1,0 +1,2 @@
+# Etherum: Smart Contracts
+Smart Contracts (SC) are the computational element of the block chain technology.
