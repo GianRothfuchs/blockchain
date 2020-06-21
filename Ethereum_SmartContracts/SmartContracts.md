@@ -42,20 +42,26 @@ Elements:
 * Events
 
 Inheritance works like this:
+~~~
 contract CatContract {..}
 
 contract AnimalContract is CatContract {
 //special policies for cats
 }
+~~~
 This way CatContract inherits all policies that apply for AnimalContract.
 
 Function header definition:
 * Basic Header: 
+~~~
 	function header {//code}
+~~~
 * Full Header: 
+~~~
   function nameOfFunction (params) visibilityModifier accessModifier returns (returnParams) {//code} 
+~~~
 param is a pair type/identifier (i.e. uint counter), returnParams it’s the same when only type is specified there has to be return statement.
-* Function Return: multiple returns can be defined (age,gender) = getAgeGender();
+* Function Return: multiple returns can be defined ~~~(age,gender) = getAgeGender();~~~
 	
 
 ### Data Types and Statements
@@ -63,8 +69,14 @@ There is an extensive Documentation on [Data Types](https://solidity.readthedocs
 
 ### Data Structures and Events
 1. Address is a special solidity composite data type. It holds a 20-byte Ethereum Address. It also contains the Balance of the Address stated in Wei and it also supports a function Address.tranfer(uint256 amount) to transfer an amount of Wei to the Address.
-2. Mapping is a key/value store. Key is often an Ethereum address, the value can be any data type. Example: mapping (uint address => customer) custData;
-3. Message is a complex dataytpe. This is the call to invoke a function of a smart contract. It has many attributes amongst them there are: address adr = msg.sender; uint amt = msg.value (in Wei).
+2. Mapping is a key/value store. Key is often an Ethereum address, the value can be any data type. Example: 
+~~~
+mapping (uint address => customer) custData;
+~~~
+3. Message is a complex dataytpe. This is the call to invoke a function of a smart contract. It has many attributes amongst them there are: 
+~~~
+address adr = msg.sender; uint amt = msg.value (in Wei).
+~~~
 
 The code [Minter.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#Minter-sol) make use of the Mapping and Address feature discussed above. In Addition that the handling of events is also demonstrated with a simple example.
 
