@@ -14,7 +14,7 @@ A smart contract consists of the following building blocks:
 The SC equivalent of ‚hello world‘
 [greeter.sol](https://gist.githubusercontent.com/GianRothfuchs/fcdaddad12a910040897a0382c9a875d/Greeter.sol)
 
-[![](scrnshot1.png)](scrnshot1.png)
+[![](resources/scrnshot1.png)](resources/scrnshot1.png)
 
 ### Compilation Process
 Compile using Environment ‚Java Script VM‘ and Deploy. The compiler creates the following artefacts:
@@ -43,25 +43,28 @@ Elements:
 
 Inheritance works like this:
 ~~~
-contract CatContract {..}
+ contract CatContract {..}
 
-contract AnimalContract is CatContract {
-//special policies for cats
-}
+ contract AnimalContract is CatContract {
+ //special policies for cats
+ }
 ~~~
 This way CatContract inherits all policies that apply for AnimalContract.
 
 Function header definition:
 * Basic Header: 
 ~~~
-	function header {//code}
+ function header {//code}
 ~~~
 * Full Header: 
 ~~~
-  function nameOfFunction (params) visibilityModifier accessModifier returns (returnParams) {//code} 
+ function nameOfFunction (params) visibilityModifier accessModifier returns  (returnParams) {//code} 
 ~~~
 param is a pair type/identifier (i.e. uint counter), returnParams it’s the same when only type is specified there has to be return statement.
-* Function Return: multiple returns can be defined ~~~(age,gender) = getAgeGender();~~~
+* Function Return: multiple returns can be defined 
+~~~
+ (age,gender) = getAgeGender();
+~~~
 	
 
 ### Data Types and Statements
@@ -71,11 +74,11 @@ There is an extensive Documentation on [Data Types](https://solidity.readthedocs
 1. Address is a special solidity composite data type. It holds a 20-byte Ethereum Address. It also contains the Balance of the Address stated in Wei and it also supports a function Address.tranfer(uint256 amount) to transfer an amount of Wei to the Address.
 2. Mapping is a key/value store. Key is often an Ethereum address, the value can be any data type. Example: 
 ~~~
-mapping (uint address => customer) custData;
+ mapping (uint address => customer) custData;
 ~~~
 3. Message is a complex dataytpe. This is the call to invoke a function of a smart contract. It has many attributes amongst them there are: 
 ~~~
-address adr = msg.sender; uint amt = msg.value (in Wei).
+ address adr = msg.sender; uint amt = msg.value (in Wei).
 ~~~
 
 The code [Minter.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#Minter-sol) make use of the Mapping and Address feature discussed above. In Addition that the handling of events is also demonstrated with a simple example.
@@ -94,18 +97,18 @@ The code [Minter.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbe
 ### Security and Stability
 * Function modifiers. Defined at the beginning of a function and execute before the execution of the function. Modifier checks a condition using a require clause. In combination with a revert function a transaction will be rejected and all its state changes are reverted, there will be no recording on the blockchain. Example definition of a modifier:
 ~~~
-modifier onlyBy(address _account) {
+ modifier onlyBy(address _account) {
 					require(msg.sender == _account);
 					_; // this is important!
 				   }
 ~~~
 Use the modifier in the function like this:
 ~~~
-function register(address toVoter) public onlyBy(chairperson) {// code}
+ function register(address toVoter) public onlyBy(chairperson) {// code}
 ~~~
 An in-function implementation of this check would be something like:
 ~~~
-if (msg.sender == _account) {return;}
+ if (msg.sender == _account) {return;}
 ~~~
 * Assert declaration can also handle errors at the end of a function execution and can also be combined with the revert clause.
 
