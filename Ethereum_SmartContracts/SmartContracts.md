@@ -70,24 +70,31 @@ The code [Minter.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbe
 
 ### Struct, Array, and Time Units
 * Struct is a structure containing related data. Refer to the [Ballot.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#file-ballotbasic-sol) for an code example. For example 
+~~~
   struct voter {uint weight;
 		bool voted;
 		uint8 vote;
 		}
-  
+~~~
 * Time Units are expressed as Unix Epoch Time. The Solidity specific now reveals the confirmation time of the block.
 * Enum helps to define states or phases of a contract. A use case for enum as a state definition can be found in [BallotWithStages.sol](https://gist.github.com/GianRothfuchs/fa176dd2bd39471eefbebdc2d5b38f42#file-ballotwithstages-sol)
 
 ### Security and Stability
 * Function modifiers. Defined at the beginning of a function and execute before the execution of the function. Modifier checks a condition using a require clause. In combination with a revert function a transaction will be rejected and all its state changes are reverted, there will be no recording on the blockchain. Example definition of a modifier:
+~~~
 modifier onlyBy(address _account) {
 					require(msg.sender == _account);
 					_; // this is important!
 				   }
+~~~
 Use the modifier in the function like this:
+~~~
 function register(address toVoter) public onlyBy(chairperson) {// code}
+~~~
 An in-function implementation of this check would be something like:
+~~~
 if (msg.sender == _account) {return;}
+~~~
 * Assert declaration can also handle errors at the end of a function execution and can also be combined with the revert clause.
 
 ## Week 3: Development
