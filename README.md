@@ -4,7 +4,10 @@ This Repo is dedicated to store progress Block Chain specialization on [Coursera
 ## 1. Ethereum
 [1.1 Smart Contracts](Ethereum_SmartContracts/SmartContracts.md)
 
-## 2. Remix IDE
-[2.1 Remix IDE]()
+## 2. Distributed Applications
+[2.1 Dapps](Ethereum_SmartContracts/Dapps.md)
+
+## Remix IDE
+[Remix IDE]()
 [![](Ethereum_SmartContracts/resources/scrnshot1.png)](Ethereum_SmartContracts/resources/scrnshot1.png)
 
