@@ -9,7 +9,7 @@ This Repo is dedicated to store progress Block Chain specialization on [Coursera
 
 ## Remix IDE
 [Remix IDE]()
-[![](Ethereum_SmartContracts/resources/scrnshot1.png)](Ethereum_SmartContracts/resources/scrnshot1.png)
+[Remix IDE](Ethereum_SmartContracts/resources/scrnshot1.png)
 
 ## Truffle IDE
 [Truffle IDE](https://www.trufflesuite.com/)
