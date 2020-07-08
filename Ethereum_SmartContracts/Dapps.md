@@ -77,5 +77,5 @@ web3.eth.getBalance(from:web3.eth.coinbase).toNumber()
 In general tests performed can be categorized into two sub-categories:
 1. Positive Test: Based on valid input, regular behavior is expected
 2. Negative Test: Based on invalid input, error capture is expected
-Usually the tester ist written in the same language as the Programm to be tested. However, this may not be feasibilbe for SCs that depend on who sends the message to the contract. In such cases a SC cannot be testeb by another SC you have to resort to JavaScript.
+Usually the tester ist written in the same language as the Programm to be tested. However, this may not be feasibilbe for SCs that depend on who sends the message to the contract. In such cases a SC cannot be testeb by another SC you have to resort to JavaScript. 
 
