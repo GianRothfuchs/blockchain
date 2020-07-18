@@ -83,3 +83,40 @@ In general tests performed can be categorized into two sub-categories:
 1. Positive Test: Based on valid input, regular behavior is expected
 2. Negative Test: Based on invalid input, error capture is expected
 Usually the tester ist written in the same language as the Programm to be tested. However, this may not be feasibilbe for SCs that depend on who sends the message to the contract. In such cases a SC cannot be testeb by another SC you have to resort to JavaScript. 
+
+Testing in Truffle IDE based on the test blockain as described above reuires as test script test.js in the test directory. From the base dir run Truffle command *truffle test*.
+
+## Design Best Practices
+### Solidity Features
+Memory vs. Storage 
+Data like Stuct and Arrays that are of temporary use can be stored as memory instead of storage like this:
+~~~
+address[30] memory owner = ... ;
+~~~
+Wihtout the *memory* keyword owner would be treated as storage and therefore woul be consume permanent sotorage on the blockchain.
+
+Life time management
+Killing or shuting down a deployed smart contract is possible by using the Solidity *self-destruct* feature. Caution the command is irreversible.
+
+Inheritance
+Inheritance from othe SCs works as follows:
+~~~
+contract FedLaws {} // in file FedLaws.sol
+contract StateLaws {} // in file StateLaws.sol
+
+import "FederalLaws.sol";
+import "StatLaws.sol";
+contract FieldLaws is FederalLaws, StateLaws {}
+~~~
+Libraries can be included this way into an SC.
+    
+###  Event Handling
+Push notiications
+Loging activities
+Enables asynchronous operation
+
+2. Logging events on the blockchain is recommended for notification purposes
+3. A smart contract cannot access information outside the blockchain 
+
+
+
