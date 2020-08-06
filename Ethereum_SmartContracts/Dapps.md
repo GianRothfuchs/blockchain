@@ -111,12 +111,27 @@ contract FieldLaws is FederalLaws, StateLaws {}
 Libraries can be included this way into an SC.
     
 ###  Event Handling
-Push notiications
+Push notifications
 Loging activities
 Enables asynchronous operation
 
 2. Logging events on the blockchain is recommended for notification purposes
 3. A smart contract cannot access information outside the blockchain 
+
+### Acessing Off-Chain Resources with Oraclize
+Since the blockchain has to remain in cosistent state. The result of an action has to be deterministic. Thus, a smart contract cannot directly access external resources. Instead the SC need to use the Oraclize SC.
+Oraclize serves as a data carrier between an on-chain SC and an off-chain web resources (APIs, URLs, ...). Oraclize facilitates the availability of real world facts for an SC, by providing a query function to external sources. The Oraclize SC fetches the data and provides authentication and proof of the source. The result of the query is provided in a callback function, as the fetching process may need some time. 
+This is how usingOraclize used?
+~~~
+import "../usingOraclize.sol"
+
+contract AvgWinterTemp is usingOraclize {} // AvgWinterTemp inherits from usingOraclize the fucntions to acces external resources
+~~~
+More information on Oraclize is available here: [Getting data from the internet with Oraclize](https://ethereumdev.io/getting-data-internet-oraclize/)
+
+## Dapp Models
+Check [www.stateofthedapps.com](https://www.stateofthedapps.com) to find a broad range of Dapps.
+
 
 
 
