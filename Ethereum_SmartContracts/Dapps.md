@@ -27,7 +27,7 @@ Create a new workspace *$ cd* to the workspace and execute *$ truffle init*, whi
 1. contracts: containing Solidity source files for SCs
 2. migrations: facilitates contract deployments
 3. test: contains JavaScript and Solidity tests for SCs, Truffle config file (Node Address, RPC Port)
-The editor of choice is the gedit editor e.g. doing *$ gedit contracts/Ballot.sol &* 
+Copy the SCs under developmen to the contracts folder by using *$ cp SOURCE DEST*. The  text editor of choice is the gedit editor e.g. doing *$ gedit contracts/Ballot.sol &*
 
 
 ### Compiler
@@ -57,7 +57,7 @@ var Ballot = artifacts.require("Ballot");
 ~~~
 
 ### Smart Contract Deployment
-The command *$ truffle migrate --reset* will migrate the SC and the aritfacts to the local Blockchain. The *--reset* option makes sure any old versions of the SC on the Blockchain is updated with the new one. Note once the SC has been deployed to the Blockchain it cannot be updated anymore. however, escape hatches offer a solution to this.
+The command *$ truffle migrate --reset* will migrate the SC and the aritfacts to the local Blockchain. In essence this just runs all the .js files in the migration folder. The *--reset* option makes sure any old versions of the SC on the Blockchain is updated with the new one. Note once the SC has been deployed to the Blockchain it cannot be updated anymore. however, escape hatches offer a solution to this.
 
 ### Truffle Console
 Truffle Console Creates a commandline interface to the accounts crreated on the test Blockchain and to the managment APIs. Examples:
@@ -83,6 +83,11 @@ Usually the tester ist written in the same language as the Programm to be tested
 
 Testing in Truffle IDE based on the test blockain as described above reuires as test script test.js in the test directory. From the base dir run Truffle command *truffle test*.
 
+## Adding Front-End
+The web assets are stored in src folder in the workspace. In particular the app.js file initializes the Web3 Object. The App ist the receiver of all blockchain requestes, which passes these requests to the blockchain's RPC endpoint opened above. In addition to the Web3 component the app.js also intializes the conttract  component which points to the artifacts created in the compilation process. To make functions provided by the SC available to the front-end a handle function needs to be provided. To setup a light-weight development server run the following:
+~~~
+npm run dev
+~~~
 ## Design Best Practices
 ### Solidity Features
 Memory vs. Storage 
@@ -128,6 +133,26 @@ More information on Oraclize is available here: [Getting data from the internet 
 
 ## Dapp Models
 Check [www.stateofthedapps.com](https://www.stateofthedapps.com) to find a broad range of Dapps.
+
+## Dapp Standards
+ERC 20 and ERC 721
+On Ethereum blockchain standards are implemented by having standardized processes for all kinds of matters. A prominent example of a standard is:
+1. [EIP](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) (Ethereum Improvement Proposal) having the following subclasses
+ 1.1 Core: Core Ethereum protocol
+ 1.2 Network: Network level improvement
+ 1.3 Interface: Interfaces such as ABI, RPC
+ 1.4 ERC (Ethereum Request for Comments): Application level conventions and standards (e.g. ERC N, discussed on github)
+  1.5 [ERC 20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md): making self coined tokens ERC 20 compliant. Implementation:
+  ~~~
+  contract MyToken is ERC20Interface{
+	//implement functions required by ERC20Interface standard
+	//implement own functions
+  }
+  ~~~
+  1.6 [ERC 721](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md): standard for non-fungible tokens. The concept of fungibility is important to tokens. Fungible tokens can be exchange one for anoter 1$ Bill = 1$ Bill. But a 1 Penny coin is not 1:1 exchangeable to collector edition 1 Penny coin and therefore the collector edition 1 Penny coin is non-fungible. The standard example for non-fungible tokens are CryptoKitties.
+ 
+ 
+
 
 
 
