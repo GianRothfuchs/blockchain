@@ -22,7 +22,7 @@ The Fabric Model constist of the following items:
 5. Ledger: Like the Ethereum blockchain it is a tamper-proof record of transactions/state-changes: 
 	Key/Value pair - create, update & delete
 6. Channels: Privacy and Confidentiality are enforced through the channel concept. Channel defines a single permissiond network of entities with a single ledger. Channel provides a segregated ledger for a set of entities to transact privately. Channel also enables cross-chain chaincode (smart contracts).
-7. Identity: participating entites should have verifyable identities like a X.509-cetrificate. the identity determines the role and the access they have on the blockchain
+7. Identity: participating entites should have verifyable identities like a X.509-certificate. the identity determines the role and the access they have on the blockchain
 8. Membership: A trusted Membership Service Provider (MSP) managers memberships and roles. The MSP manges the issuance of X.509-certificates via intemediate and root-certificate authority
 9. Consensus Mechanism: Agreement on the next block of the transaction to be added to the chain. This includes validation and verification mechanisms. Depending on the case a round robin or PBFT mechanism may be applied. If there is a potential for a malicious transaction even a PoW mechanism may be applied as consesus model.
 In the Fabric framework multiple coexisting blockains (business networks) exist. Interactions between different chains (buiseness networks) are established via confidential smart contracts. E.g. a smart contract may connect the Financial Market Network with the Global Trade Network for a given transaction. Fabriuc model provides the following key features:
@@ -32,6 +32,16 @@ In the Fabric framework multiple coexisting blockains (business networks) exist.
 - Efficiency as peer nodes may operate in parallel (validation, odering, commitment)
 - Chaincode
 
-## Developemnt of Hyperledger Fabric Application
+## Development of Hyperledger Fabric Application
+The building blocks of Hyperledger Fabric are the following:
+- Yeoman Skeleton code
+- .cto file: class definitions for assets, participants, and transactions
+- .js file: transaction functions
+- .acl: access control rules
+The composer tool packages these items into a deployable business network archive (.bna).
+
+### Composer 
+[Composer Demo](assets/Composer-Demo.pdf)
+
 
 
