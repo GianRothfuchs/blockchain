@@ -136,7 +136,7 @@ Psuedo algorithm for Hashgraph:
 loop {
 	new event created;
 	
-	divideRounds; // creates next round if conditions ar met, every memeber of a round should have a witness in that ro
+	divideRounds; // creates next round if conditions ar met, every memeber of a round should have a witness
 	
 	decideFame; // determine if the winesses of the previous rounds are famous
 	
